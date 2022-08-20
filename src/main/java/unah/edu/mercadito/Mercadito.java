@@ -31,7 +31,7 @@ public class Mercadito {
        controlC.setId(12345);
        controlC.setNombreCliente("Mauro");
        controlC.setApellido("Torres");
-       controlC.Insertar();
+       controlC.insertar();
        
       /* controlP.ActualizarVista();
        controlP.setIdProducto(8793);
