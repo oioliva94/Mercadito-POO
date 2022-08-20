@@ -27,19 +27,18 @@ public class Mercadito {
         ClienteView vista=new ClienteView();
         Cliente cliente=InsertNOpersistente();
         ClienteController controlC=new ClienteController(cliente,vista);
-         
-       /*controlC.ActualizarVista();
+       controlC.ActualizarVista();
        controlC.setId(12345);
        controlC.setNombreCliente("Mauro");
        controlC.setApellido("Torres");
-       controlC.Insertar();*/
+       controlC.Insertar();
        
-       controlP.ActualizarVista();
-       controlP.setIdProducto(5875);
-       controlP.setNombreProducto("fanta");
+      /* controlP.ActualizarVista();
+       controlP.setIdProducto(8793);
+       controlP.setNombreProducto("Mirinda");
        controlP.setDescripcion("refresco 1.5lts");
-       controlP.setPrecio(26);
-       controlP.Insertar();
+       controlP.setPrecio(24);
+       controlP.Insertar();*/
         /*String continuar="s";
         int seleccion;
         Menu menu=new Menu();

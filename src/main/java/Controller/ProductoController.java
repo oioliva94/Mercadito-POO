@@ -47,7 +47,7 @@ public class ProductoController {
     }
     
     public void setNombreProducto(String nombre){
-        this.modelo.getNombreProducto();
+        this.modelo.setNombreProducto(nombre);
     }
     
     public String getDescripcion(){

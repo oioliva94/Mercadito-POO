@@ -19,7 +19,7 @@ public class ClienteView {
     public void imprimirDatosClinete(int id, String nombre, String apellido){
         System.out.println("Identidad: "+id);
         System.out.println("Nombre: "+nombre);
-        System.out.println("Nombre: "+apellido);
+        System.out.println("Apellido: "+apellido);
     } 
     
     public void ImprimirSelect(ResultSet rs){

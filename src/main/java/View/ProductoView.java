@@ -19,10 +19,10 @@ public class ProductoView {
     private ResultSetMetaData rsmt;
     
     public void imprimirDatosProducto(int idProducto, String nombreProducto, String descripcion,float precio){
-        System.out.println("Codigo: "+idProducto);
-        System.out.println("Nombre: "+nombreProducto);
-        System.out.println("Descripcion: "+descripcion);
-        System.out.println("Precio: "+precio);
+        System.out.println("Codigo: " + idProducto);
+        System.out.println("Nombre: " + nombreProducto);
+        System.out.println("Descripcion: " + descripcion);
+        System.out.println("Precio: " + precio);
     } 
     
     public void ImprimirSelect(ResultSet rs){
