@@ -12,11 +12,12 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 /**
  *
  * @author rekuta
  */
-public class ClienteController {
+public class ClienteController   {
     private Cliente modelo;
     private ClienteView vista;
     
@@ -25,10 +26,13 @@ public class ClienteController {
     private Statement st;
     private ResultSet rs;
     private String sql;
+   
+    
     public ClienteController(){}
-    public ClienteController(Cliente modelo, ClienteView vista) {
+    public ClienteController(Cliente modelo, ClienteView vista ) {
         this.modelo = modelo;
         this.vista = vista;
+        
     }
     
     public int getId(){
@@ -55,13 +59,15 @@ public class ClienteController {
         this.modelo.setApellido(apellido);
     }
     
+    
+    
     public void ActualizarVista(){
        vista.imprimirDatosClinete(modelo.getIdCliente(),modelo.getNombreCliente(), modelo.getApellido());
     }
     
-    
-     public boolean Insertar( ){
-        exito= false;
+ 
+    public boolean insertar() {
+         exito= false;
         st= null;
         cn= null;
                 
@@ -82,6 +88,7 @@ public class ClienteController {
         }
         return exito;
     }
+    
      
      public boolean Update(int Id){
         exito= false;
@@ -106,7 +113,7 @@ public class ClienteController {
         return exito;        
     }
      
-     public boolean Select(String Id){
+     public boolean Select(int Id){
         exito= false;
         st= null;
         cn= null;
@@ -126,4 +133,5 @@ public class ClienteController {
         }
         return exito;
     }
+
 }

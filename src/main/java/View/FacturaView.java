@@ -9,22 +9,28 @@ package View;
  * @author rekuta
  */
 
+import Model.Cliente;
+import Model.Producto;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-public class ProductoView {
-    private ResultSetMetaData rsmt;
+public class FacturaView {
+       private ResultSetMetaData rsmt;
     
-    public void imprimirDatosProducto(int idProducto, String nombreProducto, String descripcion,float precio,int stok){
-        System.out.println("Codigo: " + idProducto);
-        System.out.println("Nombre: " + nombreProducto);
-        System.out.println("Descripcion: " + descripcion);
-        System.out.println("Precio: " + precio);
-         System.out.println("en existencia: " +  stok);
+    public void ImprimirDatosFactura(int numeroFactura, LocalDate fecha,Cliente cliente){
+        System.out.println("Factura #: " + numeroFactura);
+        System.out.println("fecha: " + fecha);
+        System.out.println("Cliente#: " + cliente.getIdCliente());
+    
     } 
+    public void ImprimirDatosDetalle(int numeroDetalle, Producto producto,int cantidad){
+          System.out.println(numeroDetalle+"  "+producto.getNombreProducto()+" "+
+                            producto.getPrecio()+" "+cantidad);
+    }
+    
     
     public void ImprimirSelect(ResultSet rs){
         try {
@@ -41,4 +47,5 @@ public class ProductoView {
             Logger.getLogger(ProductoView.class.getName()).log(Level.SEVERE, null, ex);
         }                   
     }
+
 }

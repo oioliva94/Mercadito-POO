@@ -23,7 +23,6 @@ public class Mercadito {
         ProductoView vistaP=new ProductoView();
         Producto producto=new Producto();
         ProductoController controlP=new ProductoController(producto, vistaP);
-        
         ClienteView vista=new ClienteView();
         Cliente cliente=InsertNOpersistente();
         ClienteController controlC=new ClienteController(cliente,vista);

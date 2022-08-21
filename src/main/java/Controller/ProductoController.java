@@ -66,8 +66,16 @@ public class ProductoController {
         this.modelo.setPrecio(precio);
     }
     
+    public int getStok(){
+        return modelo.getStok();
+    }
+    
+    public void setStok(int stok){
+        this.modelo.setStok(stok);
+    }
+    
      public void ActualizarVista(){
-       vista.imprimirDatosProducto(modelo.getIdProducto(),modelo.getNombreProducto(), modelo.getDescripcion(),modelo.getPrecio());
+       vista.imprimirDatosProducto(modelo.getIdProducto(),modelo.getNombreProducto(), modelo.getDescripcion(),modelo.getPrecio(),modelo.getStok());
     }
     
     public boolean Insertar( ){
@@ -76,7 +84,7 @@ public class ProductoController {
         cn= null;
                 
         sql= "insert into Producto values ('"+
-                modelo.getIdProducto()+"', '"+modelo.getNombreProducto()+"','"+modelo.getDescripcion()+"','"+modelo.getPrecio()+"')";
+                modelo.getIdProducto()+"', '"+modelo.getNombreProducto()+"','"+modelo.getDescripcion()+"','"+modelo.getPrecio()+modelo.getStok()+"')";
         
         try{
             cn= Conexion.Conectar();
@@ -116,12 +124,12 @@ public class ProductoController {
         return exito;        
     }
      
-     public boolean Select(String Id){
+     public boolean Select(int Id){
         exito= false;
         st= null;
         cn= null;
         
-        sql= "select idProducto, nombreProducto from Producto where id= '"+Id+"'";
+        sql= "select idProducto, nombreProducto, descripcion, precio, stok from Producto where idProducto= '"+Id+"'";
         
         try{
             cn= Conexion.Conectar();

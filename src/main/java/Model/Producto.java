@@ -13,14 +13,16 @@ public class Producto {
     private String nombreProducto;
     private String descripcion;
     private float precio;
+    private int stok;
     
     public Producto (){}
 
-    public Producto(int idProducto, String nombreProducto, String descripcion, float precio) {
+    public Producto(int idProducto, String nombreProducto, String descripcion, float precio,int stok) {
         this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.stok=stok;
     }
 
     public int getIdProducto() {
@@ -54,6 +56,15 @@ public class Producto {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+
+    public int getStok() {
+        return stok;
+    }
+
+    public void setStok(int stok) {
+        this.stok = stok;
+    }
+    
     
     
 }
