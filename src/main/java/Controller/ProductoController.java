@@ -83,8 +83,8 @@ public class ProductoController {
         st= null;
         cn= null;
                 
-        sql= "insert into Producto values ('"+
-                modelo.getIdProducto()+"', '"+modelo.getNombreProducto()+"','"+modelo.getDescripcion()+"','"+modelo.getPrecio()+modelo.getStok()+"')";
+        sql= "insert into Producto values ("+
+                modelo.getIdProducto()+", '"+modelo.getNombreProducto()+"','"+modelo.getDescripcion()+"',"+modelo.getPrecio()+","+modelo.getStok()+")";
         
         try{
             cn= Conexion.Conectar();
