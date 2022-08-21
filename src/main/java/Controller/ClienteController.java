@@ -96,7 +96,9 @@ public class ClienteController   {
         cn= null;
         
         sql= "update clientes set nombre= '"+modelo.getNombreCliente()+"' "+
-                "where id='"+modelo.getIdCliente()+"'";
+                "where id="+modelo.getIdCliente()+
+                "update clientes set apellido= '"+modelo.getApellido()+"' "+
+                "where id="+modelo.getIdCliente();
         
         try{
             cn= Conexion.Conectar();
@@ -133,5 +135,50 @@ public class ClienteController   {
         }
         return exito;
     }
-
+public boolean Eliminar(int id){
+         exito= false;
+        st= null;
+        cn= null;
+        
+        sql= "delete from Clientes where idCliente= "+id;
+        
+        try{
+            cn= Conexion.Conectar();
+            st= cn.createStatement();
+            st.execute(sql);
+            
+            exito= true;
+            
+            st.close();
+            cn.close();
+        }catch(SQLException e){
+            System.out.println("Error en la ejecucion delete");
+        }
+        return exito;      
+     }
+     
+    
+   
+    
+      public boolean SelectAll(){
+        exito= false;
+        st= null;
+        cn= null;
+        
+        sql= "select idCliente, nombreCliente, apellido from Clientes";
+        
+        try{
+            cn= Conexion.Conectar();
+            st= cn.createStatement();
+            rs= st.executeQuery(sql);
+        
+            vista.ImprimirSelect(rs);
+       
+            
+            exito= true;
+        } catch(SQLException e){
+            System.out.println("Error en la ejecucion select");
+        }
+        return exito;
+    }
 }

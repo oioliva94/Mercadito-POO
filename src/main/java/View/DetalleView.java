@@ -3,29 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package View;
-
-/**
- *
- * @author rekuta
- */
-
-
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class FacturaView {
-    private ResultSetMetaData rsmt;
+/**
+ *
+ * @author Rekuta
+ */
+public class DetalleView {
+     private ResultSetMetaData rsmt;
     
-    public void imprimirDatosFactura( int id, int idCliente,LocalDate fecha){
-        System.out.println("Factura#: "+id);
-        System.out.println("Id cliente: "+idCliente);
-        System.out.println("fecha: "+fecha);
-    }
+    public void imprimirDatosDetalle(int numeroDetalle, int numeroFactura,int idProducto, int cantidad){
+        System.out.println("Detalle #: "+numeroDetalle);
+        System.out.println("Factura: "+numeroFactura);
+        System.out.println("Codigo producto: "+idProducto);
+         System.out.println("cantidad: "+cantidad);
+    } 
     
-     public void ImprimirSelect(ResultSet rs){
+    public void ImprimirSelect(ResultSet rs){
         try {
             rsmt= rs.getMetaData();
             

@@ -20,7 +20,7 @@ public class ProductoController {
     
     private Producto modelo;
     private ProductoView vista;
-    
+      //atributos de conexion
     private Connection cn;
     private boolean exito;
     private Statement st;
@@ -83,8 +83,7 @@ public class ProductoController {
         st= null;
         cn= null;
                 
-        sql= "insert into Producto values ("+
-                modelo.getIdProducto()+", '"+modelo.getNombreProducto()+"','"+modelo.getDescripcion()+"',"+modelo.getPrecio()+","+modelo.getStok()+")";
+        sql= "insert into Producto values ("+modelo.getIdProducto()+", '"+modelo.getNombreProducto()+"','"+modelo.getDescripcion()+"',"+modelo.getPrecio()+","+modelo.getStok()+");";
         
         try{
             cn= Conexion.Conectar();
@@ -106,7 +105,7 @@ public class ProductoController {
         st= null;
         cn= null;
         
-        sql= "update Producto set nombre= '"+modelo.getNombreProducto()+"' "+
+        sql= "update Producto set precio= '"+modelo.getPrecio()+"' "+
                 "where id='"+modelo.getIdProducto()+"'";
         
         try{
@@ -123,6 +122,28 @@ public class ProductoController {
         }
         return exito;        
     }
+     
+     public boolean Eliminar(int id){
+         exito= false;
+        st= null;
+        cn= null;
+        
+        sql= "delete from Producto where idProducto= "+id;
+        
+        try{
+            cn= Conexion.Conectar();
+            st= cn.createStatement();
+            st.execute(sql);
+            
+            exito= true;
+            
+            st.close();
+            cn.close();
+        }catch(SQLException e){
+            System.out.println("Error en la ejecucion delete");
+        }
+        return exito;      
+     }
      
      public boolean Select(int Id){
         exito= false;
@@ -145,4 +166,25 @@ public class ProductoController {
         return exito;
     }
     
+      public boolean SelectAll(){
+        exito= false;
+        st= null;
+        cn= null;
+        
+        sql= "select idProducto, nombreProducto, descripcion, precio, stok from Producto";
+        
+        try{
+            cn= Conexion.Conectar();
+            st= cn.createStatement();
+            rs= st.executeQuery(sql);
+        
+            vista.ImprimirSelect(rs);
+       
+            
+            exito= true;
+        } catch(SQLException e){
+            System.out.println("Error en la ejecucion select");
+        }
+        return exito;
+    }
 }

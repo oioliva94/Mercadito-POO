@@ -19,7 +19,7 @@ public class Menu {
     System.out.println("3. Facturar");
     System.out.println("4. Cierre de caja");
     System.out.println("5. Auditoria");
-    System.out.println("6. Salir");
+    System.out.println("0. Salir");
     }
     
     public void menuCliente(){
@@ -33,7 +33,7 @@ public class Menu {
     public void menuProducto(){
         System.out.println("1. Consultar Prodcutos");
         System.out.println("2. Agregar Prodcutos a base de datos");
-        System.out.println("3. Modificar datos de producto");
+        System.out.println("3. Modificar preciopre de producto");
         System.out.println("4. Eliminar producto");
         System.out.println("0. Salir");
     }
